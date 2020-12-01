@@ -7,7 +7,7 @@ use App\Http\Controllers\EthVsUsdController;
 use App\Http\Controllers\MintmeVsEthController;
 use App\Http\Controllers\CalcMintmeVsUsdController;
 use App\Http\Controllers\CalcUsdVsMintmeController;
-use App\Http\Controllers\UploadController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,16 +25,11 @@ Route::get('/eth/vs/usd', [App\Http\Controllers\EthVsUsdController::class, 'inde
 Route::get('/mintme/vs/eth', [App\Http\Controllers\MintmeVsEthController::class, 'index']);
 Route::get('/calc/mintme/vs/usd/{amount?}', [App\Http\Controllers\CalcMintmeVsUsdController::class, 'index']);
 Route::get('/calc/usd/vs/mintme/{amount?}', [App\Http\Controllers\CalcUsdVsMintmeController::class, 'index']);
-Route::post('/video', [App\Http\Controllers\UploadController::class, 'saveVideo']);
-Route::get('/video', [App\Http\Controllers\UploadController::class, 'getFiles']);
 
 Route::get('/', function () {
     return view('app');
 })->where('any','.*');
-Route::get('/upload', function () {
-    return view('app');
-})->where('any','.*');
 
-/*Route::get('/{any}', function () {
+Route::get('/{any}', function () {
     abort(404);
-})->where('any','.*');*/
+})->where('any','.*');
